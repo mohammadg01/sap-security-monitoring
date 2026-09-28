@@ -82,9 +82,9 @@ SM19 / SM20 -> Audit Log einstellen und ansehen
 Für mein Projekt: Im Audit Log steht bei jedem Eintrag, welcher Benutzer in welchem Mandanten welche Transaktion gestartet hat. Ein Beispiel für eine Regel wäre dann: "Normaler Benutzer startet SU01 -> verdächtig, denn warum legt ein Lagerist neue Benutzer an?"
 
 SAP ist in drei Schichten aufgebaut , die klassische Drei-Schichten-Architektur:
-
+```
 ┌─────────────────────────────┐
-│ 1. Präsentation             │  SAP GUI / Browser (Fiori)
+│ 1. Präsentation           │  SAP GUI / Browser (Fiori)
 │    → was der Mitarbeiter    │  läuft auf dem PC des Mitarbeiters
 │      sieht                  │
 ├─────────────────────────────┤
@@ -95,7 +95,7 @@ SAP ist in drei Schichten aufgebaut , die klassische Drei-Schichten-Architektur:
 │    → speichert alle Daten   │  Gehälter, Rechnungen, Benutzer …
 └─────────────────────────────┘
         läuft auf: Linux-Servern (meist SUSE oder Red Hat)
-
+```
 Für mein Projekt: Das Security Audit Log wird vom Applikationsserver (Schicht 2) geschrieben, als Datei auf dem Linux Server darunter. In einem echten System System würde der Agent dort sitzen. In meinem Projekt liest er eine simulierte Audit-Log-Datei auf meiner Ubuntu-VM."
 
 Frage 4: Was ist das Audit Log, und was steht drin? 
