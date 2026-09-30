@@ -1,0 +1,10 @@
+AU1|20260930|091502|MUELLER|SESSION_MANAGER|100|Logon successful (type=A)|192.168.83.20
+AU3|20260930|091530|MUELLER|FB60|100|Transaction FB60 started|192.168.83.20
+AU2|20260930|101201|SAP*|-|000|Logon failed (reason=1, type=A)|10.0.0.66
+AU2|20260930|101203|SAP*|-|000|Logon failed (reason=1, type=A)|10.0.0.66
+AU2|20260930|101205|SAP*|-|000|Logon failed (reason=1, type=A)|10.0.0.66
+AU2|20260930|101207|SAP*|-|000|Logon failed (reason=1, type=A)|10.0.0.66
+AU2|20260930|101209|SAP*|-|000|Logon failed (reason=1, type=A)|10.0.0.66
+AU1|20260930|101212|SAP*|SESSION_MANAGER|000|Logon successful (type=A)|10.0.0.66
+AU3|20260930|101240|SAP*|SU01|000|Transaction SU01 started|10.0.0.66
+AUM|20260930|103000|LAGER01|-|100|User LAGER01 locked after erroneous password checks|192.168.83.45
