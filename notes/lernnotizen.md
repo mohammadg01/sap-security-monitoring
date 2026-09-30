@@ -122,3 +122,24 @@ Kritisch sind sie aus drei Gründen:
 3. Vollzugriff. Wer drin ist, kann alles.
 
 Für mein Projekt: Ein Login mit SAP* oder DDIC löst in Wazuh einen Alarm hoher Stufe aus (Projekt A), und mein Checker prüft, ob beide gesperrt sind und ihre Passwörter geändert wurden (Projekt B).
+
+Was sind Profilparameter?
+
+Das sind die Grundeinstellungen eines SAP-Systems, vergleichbar mit einer Konfigurationsdatei. Ein Admin setzt sie im Systemprofil. Angesehen werden sie mit der Transaktion RZ11, geändert im Profil mit RZ10. Viele davon sind sicherheitsrelevant. Sind sie falsch gesetzt, steht eine Tür offen. 
+
+Die wichtigsten für mein Projekt:
+
+| Parameter | Bedeutung | Sicherer Wert |
+|---|---|---|
+| `rsau/enable` | Security Audit Log an/aus | `1` (an) |
+| `login/no_automatic_user_sapstar` | verhindert den `SAP*`-Trick mit dem Standardpasswort | `1` |
+| `login/fails_to_user_lock` | nach wie vielen Fehlversuchen ein Benutzer gesperrt wird | z. B. `5` |
+| `login/min_password_lng` | Mindestlänge für Passwörter | mind. `8`, besser mehr |
+
+So hängt es mit meinem Projekt zusammen:
+
+Projekt A: Ohne rsau/enable = 1 gibt es gar kein Audit Log, und Wazuh hätte nichts zu lesen. login/fails_to_user_lock erzeugt die Sperrung, die im Log als AUM erscheint. 
+
+Projekt B: Mein Checker prüft genau diese Parameter und meldet unsichere Werte. 
+
+
