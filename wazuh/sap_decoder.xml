@@ -1,0 +1,15 @@
+<!--
+  Eigener Wazuh-Decoder für simulierte SAP-Security-Audit-Log-Einträge.
+  Format: MELDUNGS-ID|DATUM|ZEIT|BENUTZER|TRANSAKTION|MANDANT|MELDUNG|QUELL-IP
+  Beispiel: AU2|20260930|101201|SAP*|-|000|Logon failed (reason=1, type=A)|10.0.0.66
+-->
+
+<decoder name="sap-audit">
+  <prematch type="pcre2">^[A-Z]U[0-9A-Z]\|</prematch>
+</decoder>
+
+<decoder name="sap-audit-fields">
+  <parent>sap-audit</parent>
+  <regex type="pcre2">^([A-Z]U[0-9A-Z])\|(\d{8})\|(\d{6})\|([^|]+)\|([^|]+)\|(\d{3})\|([^|]+)\|(\S+)$</regex>
+  <order>sap_msgid,sap_date,sap_time,dstuser,sap_tcode,sap_client,sap_msg,srcip</order>
+</decoder>
