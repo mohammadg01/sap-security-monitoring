@@ -1,0 +1,9 @@
+<!--
+  Dieser Block wird in /var/ossec/etc/ossec.conf eingefügt,
+  direkt vor dem schließenden </ossec_config>.
+  Er sorgt dafür, dass Wazuh die simulierte SAP-Logdatei mitliest.
+-->
+<localfile>
+  <log_format>syslog</log_format>
+  <location>/var/log/sap/audit_sim.log</location>
+</localfile>
